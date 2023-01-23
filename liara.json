@@ -1,0 +1,12 @@
+{   
+    "disks": [
+      {
+        "name": "static",
+        "mountTo": "/usr/src/app/static/"
+      },
+      {
+        "name": "media",
+        "mountTo": "/usr/src/app/media/"
+      }
+    ]
+  }

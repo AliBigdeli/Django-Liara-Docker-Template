@@ -1,0 +1,37 @@
+# main modules
+django >3.2,<3.3
+Pillow
+djangorestframework>3.12,<3.13
+
+# env controls
+python-decouple
+
+# third party modules
+markdown       
+django-filter  
+django-cors-headers
+django-debug-toolbar
+
+# linting and test packages
+flake8
+black
+faker
+pytest-django
+
+# production packages
+gunicorn
+whitenoise
+
+# api docs
+drf-yasg
+
+# background proccess and cache
+# celery[redis]
+# redis
+# django-redis
+
+# data base package
+psycopg2-binary
+
+# monitoring
+sentry-sdk
