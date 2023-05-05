@@ -70,6 +70,7 @@ jobs:
 
     # testing the project from the root directory of core
     - name: Run tests
+      working-directory: ./core
       env:
         DJANGO_SETTINGS_MODULE: core.settings
       run: pytest .
