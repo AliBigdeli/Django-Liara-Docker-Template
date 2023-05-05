@@ -172,6 +172,7 @@ but there will be some configurations to be added for building and deploying pur
 before configuring any type of cicd you need to have api token for deployments which you can create and manage with the link provided below:
 
 ApiToken : <https://console.liara.ir/API>
+
 <div align="center" ><img loading="lazy" style="width:700px" src="./docs/liara-cicd-step0-1.png"></div>
 
 ## Github CICD
@@ -182,8 +183,11 @@ then all you have to do is to go to repo settings and add these secrets to the p
 - LIARA_API_TOKEN -  ``` api token which you got from the panel ```
 - LIARA_APP_PORT - ``` application port which you are going to use ```
 
+<div align="center" ><img loading="lazy" style="width:700px" src="./docs/liara-cicd-step0-2.png"></div>
+
 after that when ever you create any commit to the selected branch it will start the workflow for you.
 
+<div align="center" ><img loading="lazy" style="width:700px" src="./docs/liara-cicd-step0-3.png"></div>
 
 
 
