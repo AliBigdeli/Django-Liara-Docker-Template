@@ -135,6 +135,7 @@ so first of all head to database section, and choose postgresql as your database
 after that give a name to your service:
 
 <div align="center" ><img loading="lazy" style="width:700px" src="./docs/liara-database-step0-2.png"></div>
+
 **optional:** choose if you need PostGIS or even public access to your database.
 
 lastly choose the right plan for your project, and hit create and deploy:
