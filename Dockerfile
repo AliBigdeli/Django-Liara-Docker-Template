@@ -19,6 +19,6 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # copy project
 COPY ./core .
 
-# run the program
-CMD  python3 manage.py collectstatic --noinput && \
-    gunicorn --bind 0.0.0.0:8000 core.wsgi:application
+RUN python3 manage.py collectstatic --noinput
+
+CMD gunicorn --bind 0.0.0.0:8000 core.wsgi:application
