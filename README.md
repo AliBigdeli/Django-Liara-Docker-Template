@@ -176,6 +176,12 @@ but there will be some configurations to be added for building and deploying pur
 
 ## Github CICD
 will be provided soon
+before configuring any type of cicd you need to have api token for deployments which you can create and manage with the link provided below:
+
+ApiToken : <https://console.liara.ir/API>
+<div align="center" ><img loading="lazy" style="width:700px" src="./docs/liara-docker-step0-3.png"></div>
+
+
 
 ## Gitlab/Hamgit CICD
 in order to do ci/cd in the sample project for gitlab you have to create a duplicate of the ```.gitlab-ci.yml.sample``` but with different name as ```.gitlab-ci.yml``` in the root directory.
@@ -185,7 +191,7 @@ after that our pipeline will be always listening to the prod branch. if you comm
 
 note that you have to declare 5 or more environment variables in your gitlab project repo, which you can add it by going to ```Settings>CI/CD>Variables```, and in this section try to add all the needed variables.
 
-<div align="center" ><img loading="lazy" style="width:700px" src="./docs/gitlab-envs.png"></div>
+<div align="center" ><img loading="lazy" style="width:700px" src="./docs/liara-cicd-step0-1.png"></div>
 
 these variables should be included:
 - DARKUBE_APP_ID - ``` which can be found in app info page ```
