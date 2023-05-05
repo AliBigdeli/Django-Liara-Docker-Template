@@ -11,6 +11,7 @@ python-decouple
 markdown       
 django-filter  
 django-cors-headers
+django-debug-toolbar
 
 # linting and test packages
 flake8
