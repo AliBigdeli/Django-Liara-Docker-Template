@@ -24,7 +24,7 @@ jobs:
     services:
 
       # database which django is going to interact with
-      postgres:
+      db:
 
         # database image and version/tag
         image: postgres:latest
@@ -70,16 +70,17 @@ jobs:
 
     # testing the project from the root directory of core
     - name: Run tests
+      working-directory: ./core
       env:
         DJANGO_SETTINGS_MODULE: core.settings
       run: pytest .
 
   Deploy:
     if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
-    name: Build
+    name: Deploy
 
-    # depends on build job
-    needs: Build
+    # depends on Test job
+    needs: Test
 
     # choosing which os to run on
     runs-on: ubuntu-latest
@@ -93,11 +94,10 @@ jobs:
         node-version: "18"
     - name: update-liara
       env:
-        LIARA_TOKEN: ${{ secrets.LIARA_API_TOKEN }}
+        LIARA_API_TOKEN: ${{ secrets.LIARA_API_TOKEN }}
         LIARA_APP_NAME: ${{ secrets.LIARA_APP_NAME }}
         LIARA_APP_PORT: ${{ secrets.LIARA_APP_PORT }}
       run: |
         npm i -g @liara/cli@3
-        liara deploy --app="$LIARA_APP_NAME" --api-token="$LIARA_TOKEN" --detach --port="$LIARA_APP_PORT"
-  
-          
+        ls
+        liara deploy --path=.  --platform=docker --app="$LIARA_APP_NAME" --api-token="$LIARA_API_TOKEN" --detach --port=$LIARA_APP_PORT 
