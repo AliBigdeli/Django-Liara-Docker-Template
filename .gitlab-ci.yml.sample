@@ -59,5 +59,9 @@ liara_deploy:
   tags:
     - my-runner
 
+  script:
+    - npm i -g @liara/cli@3
+    - export http_proxy=http://proxy.liara.ir:6666
+    - liara deploy --app $LIARA_APP_NAME --api-token $LIARA_API_TOKEN --detach --port $LIARA_APP_PORT
 
   

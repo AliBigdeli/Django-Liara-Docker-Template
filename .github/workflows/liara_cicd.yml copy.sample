@@ -88,6 +88,16 @@ jobs:
 
     # checking out the code
     - uses: actions/checkout@v3
-    
-    
+    - uses: actions/setup-node@v3
+      with:
+        node-version: "18"
+    - name: update-liara
+      env:
+        LIARA_TOKEN: ${{ secrets.LIARA_API_TOKEN }}
+        LIARA_APP_NAME: ${{ secrets.LIARA_APP_NAME }}
+        LIARA_APP_PORT: ${{ secrets.LIARA_APP_PORT }}
+      run: |
+        npm i -g @liara/cli@3
+        liara deploy --app="$LIARA_APP_NAME" --api-token="$LIARA_TOKEN" --detach --port="$LIARA_APP_PORT"
+  
           

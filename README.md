@@ -30,11 +30,8 @@
   - [1- Create a docker app](#1--create-a-docker-app)
   - [2- Setup database](#2--setup-database)
   - [3- Setup django app](#3--setup-django-app)
-    - [1- General info](#1--general-info)
-    - [2- Environment Variables](#2--environment-variables)
-    - [3- Domain Address](#3--domain-address)
-    - [4- Pick a plan](#4--pick-a-plan)
-    - [5- wait until its deployed](#5--wait-until-its-deployed)
+    - [setup environment](#setup-environment)
+    - [upload the app](#upload-the-app)
 - [CICD Deployment](#cicd-deployment)
   - [Github CICD](#github-cicd)
   - [Gitlab/Hamgit CICD](#gitlabhamgit-cicd)
@@ -138,53 +135,40 @@ and after that click on create. for now we are done.
 ## 2- Setup database
 you cant deploy your app without database right? so this time go to database section and create a database instance.
 
+so first of all head to database section, and choose postgresql as your database, also select the version you want to install:
+
+<div align="center" ><img loading="lazy" style="width:700px" src="./docs/liara-database-step0-1.png"></div>
+after that give a name to your service:
+
+<div align="center" ><img loading="lazy" style="width:700px" src="./docs/liara-database-step0-2.png"></div>
+**optional:** choose if you need PostGIS or even public access to your database.
+
+lastly choose the right plan for your project, and hit create and deploy:
+
+<div align="center" ><img loading="lazy" style="width:700px" src="./docs/liara-database-step0-3.png"></div>
+
+remember these credentials cause you are going to need them inorder to configure your app.
+
+<div align="center" ><img loading="lazy" style="width:700px" src="./docs/liara-database-step0-4.png"></div>
+
 
 ## 3- Setup django app
-follow the provided steps to finish this section.
-
-### 1- General info
-<div align="center" ><img loading="lazy" style="width:700px" src="./docs/liara-docker-step2-1.png"></div>
-
-in this page you have to provide general information's about the app you are about to create, which in my case are as follows:
-
-```properties
-app_name: my-site # name of the app which is going to be called inside the portal
-service_port: 8000 # which is based on the gunicorn port
-execute_command: gunicorn --bind 0.0.0.0:8000 core.wsgi:application
-```
-Note: provided information is just enough to run our program for more details please visit this url 
-<https://docs.liara.com/darkube/create/git-repo/settings/general/>
-
-### 2- Environment Variables
-<div align="center" ><img loading="lazy" style="width:700px" src="./docs/liara-docker-step2-2.png"></div>
-
-in this section you have to provide the environment variables which are going to be used in the project. you can switch to editor and pase our template that is placed in /envs/prod/.env.sample
-
-Note: provided information is just enough to run our program for more details please visit this url <https://docs.liara.com/darkube/create/git-repo/settings/envs/>
-
-### 3- Domain Address
-<div align="center" ><img loading="lazy" style="width:700px" src="./docs/liara-docker-step2-3.png"></div>
-
-pick a name for you app which is going to be accessed through the web and for better security please enable https redirect.
-keep in mind that you can give a different dns name through a provider like arvan or cloudflare.(we will provide more details for this matter later)
-
-Note: provided information is just enough to run our program for more details please visit this url <https://docs.liara.com/darkube/create/git-repo/settings/domain-address/>
+follow the provided steps to finish this section, click on creating a new database instance.
 
 
-### 4- Pick a plan 
-<div align="center" ><img loading="lazy" style="width:700px" src="./docs/liara-docker-step3-1.png"></div>
+### setup environment
+in order to deploy your application first of all setup the needed environment in settings section. so inside of settings page down at the bottom you can find the environment section. add the needed environments which i have created a sample in envs directory.
+also dont forget to add database envs. which you can find in the database app page.
 
-for launching purposes you have to pick a plan for resources. based on the scale and traffic of your project you have to pick one.
+<div align="center" ><img loading="lazy" style="width:700px" src="./docs/liara-docker-step0-3.png"></div>
 
-Note: at the moment we are not using disks and we are just using the static files being served by the Whitenoise.
 
-### 5- wait until its deployed
-<div align="center" ><img loading="lazy" style="width:700px" src="./docs/liara-docker-step4-1.png"></div>
+### upload the app
+there are two options to deploy your app into liara:
+- LiaraDesktop app : <https://docs.liara.ir/app-deploy/docker/desktop>
+- LiaraCLI : <https://docs.liara.ir/app-deploy/docker/cli>
 
-now all you have to do is to wait util the project is fully deployed.
-
-after its done you can access the website through the url you picked in stage 3 of the setup.
-
+and at last wait for it to be deployed
 
 # CICD Deployment
 For the sake of continuous integration and deployment i have provided two samples for github and gitlab for you.
