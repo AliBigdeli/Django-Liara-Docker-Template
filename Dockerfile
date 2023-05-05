@@ -21,4 +21,4 @@ COPY ./core .
 
 # run the program
 RUN python3 manage.py collectstatic --noinput && \
-    gunicorn --bind 0.0.0.0:8000 core.wsgi:application
+    gunicorn --bind 0.0.0.0:8000 core.wsgi:application --daemon
