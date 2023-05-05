@@ -6,10 +6,17 @@ djangorestframework>3.12,<3.13
 # env controls
 python-decouple
 
+
 # third party modules
 markdown       
 django-filter  
 django-cors-headers
+
+# linting and test packages
+flake8
+black
+faker
+pytest-django
 
 # production packages
 gunicorn
