@@ -1,7 +1,7 @@
 <div align="center">
 <img loading="lazy" style="width:700px" src="./docs/liara-logo.svg">
-<h1 align="center">Django3.2 Liara Template</h1>
-<h3 align="center">Sample Project to use Liara service provider for django app</h3>
+<h1 align="center">Django3.2 Liara Docker Template</h1>
+<h3 align="center">Sample Project to use Liara service provider for django app with docker</h3>
 </div>
 <p align="center">
 <a href="https://www.python.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a>
