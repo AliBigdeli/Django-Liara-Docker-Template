@@ -1,0 +1,18 @@
+{
+  "platform": "docker",
+  "app": "mysite-alibigdeli",
+  "port": 8000,
+  "build": {
+    "dockerfile": "./dockerfiles/prod/Dockerfile"
+  },
+  "disks": [
+    {
+      "name": "static",
+      "mountTo": "/usr/src/app/static"
+    },
+    {
+      "name": "media",
+      "mountTo": "/usr/src/app/media"
+    }
+  ]
+}

@@ -9,8 +9,13 @@ WORKDIR /usr/src/app
 
 
 # set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
+# ENV PYTHONDONTWRITEBYTECODE 1 # removed by hint from liara
 ENV PYTHONUNBUFFERED 1
+
+# supercronic for cron jobs
+# COPY --from=liaracloud/supercronic:v0.1.11 \
+#      /usr/local/bin/supercronic /usr/local/bin/supercronic
+
 
 # install dependencies
 COPY ./requirements.txt .
